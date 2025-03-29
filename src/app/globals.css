@@ -1,0 +1,190 @@
+@font-face {
+  font-family: 'digital-7';
+  src: url('/fonts/digital-7.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* Prevents scrolling */
+  display: flex;
+  flex-direction: column; /* Ensure the layout stacks vertically */
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row; /* Row layout to position navbar, sidebar, and main content side by side */
+  height: 100%; /* Ensure it fills the full screen */
+  margin-left: 250px; /* Add left margin equal to the sidebar width */
+}
+
+.main-container {
+  display: flex;
+  flex-grow: 1; /* Main content takes the remaining height */
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height for the timer */
+  flex-grow: 1; /* Ensure it takes the remaining height */
+}
+
+.timer-box {
+  text-align: center;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+h2 {
+  margin: 0;
+  position: absolute;
+  top: -200px; /* Move it higher */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'digital-7', sans-serif; /* 7-segment font */
+  letter-spacing: 2px; /* Increase spacing between digits */
+}
+
+/* Navbar */
+
+.navbar {
+  position: fixed; /* Fixed position to stay at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure the navbar spans the full width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #333;
+  color: white;
+  font-family: Arial, sans-serif;
+  z-index: 20; /* Ensure it stays on top of the sidebar */
+}
+
+.scramble-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scramble {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+button {
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Timer */
+
+.timer-text {
+  font-size: 20rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+/* Sidebar */
+
+.sidebar {
+  position: fixed; /* Fixed position to stay in place while scrolling */
+  top: 60px; /* Adjust this value to start right below the navbar */
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 60px); /* Sidebar should take up the full height minus navbar height */
+  background-color: #292929;
+  padding: 15px;
+  color: white;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%); /* Hide sidebar when it should disappear */
+}
+
+.session-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.delete-confirm {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.delete-confirm button {
+  margin: 5px;
+}
+
+.timing-info p {
+  margin: 5px 0;
+}
+
+.timings-table {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+}
+
+tbody tr:hover {
+  background-color: #444;
+}
